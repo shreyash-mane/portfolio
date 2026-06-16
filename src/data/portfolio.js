@@ -185,8 +185,8 @@ export const experience = [
     id: 'dell',
     company: 'Dell Technologies',
     role: 'Senior Technician',
-    period: '2019 – 2023',
-    location: 'Remote / Field',
+    period: 'May 2022 – November 2024',
+    location: 'Bangalore, India',
     logo: null,
     highlights: [
       'Resolved complex technical issues across enterprise hardware and software environments',
