@@ -204,7 +204,7 @@ export const education = [
     id: 'hwu',
     institution: 'Heriot-Watt University',
     degree: 'MSc Data Science',
-    period: '2023 – 2024',
+    period: '2025 – 2026',
     location: 'Edinburgh, Scotland',
     status: 'Completed',
     highlights: [
