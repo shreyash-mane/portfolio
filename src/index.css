@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-0: #09090b;
+    --bg-1: #111113;
+    --bg-2: #18181b;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-0);
+    color: #e4e4e7;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(161, 161, 170, 0.20);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg-0);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-24;
+  }
+
+  /* Metallic white-to-silver gradient on the name */
+  .gradient-text {
+    @apply bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply bg-zinc-900/50 border border-zinc-800/70 rounded-xl backdrop-blur-sm;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:border-zinc-600/60 hover:bg-zinc-900/70;
+  }
+
+  /* Charcoal primary button */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-700 hover:bg-zinc-600 text-white text-sm font-medium rounded-lg transition-colors duration-200 border border-zinc-600/50;
+  }
+
+  /* Ghost secondary button */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-700/80 hover:border-zinc-500 text-zinc-300 hover:text-white text-sm font-medium rounded-lg transition-all duration-200;
+  }
+
+  .tag {
+    @apply inline-block px-2.5 py-1 text-xs font-medium rounded-md;
+  }
+}
+
+@layer utilities {
+  .bg-dot-pattern {
+    background-image: radial-gradient(circle, rgba(161, 161, 170, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(rgba(161, 161, 170, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(161, 161, 170, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* Subtle metallic sheen on card top-border hover */
+  .metallic-border {
+    border-top: 1px solid transparent;
+    background-clip: padding-box;
+  }
+}
