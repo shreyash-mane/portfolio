@@ -7,7 +7,7 @@ export const personal = {
   github: 'https://github.com/shreyash-mane',
   linkedin: 'https://linkedin.com/in/shreyash-mane-368138177',
   website: 'https://data-lab.co.uk',
-  cv: '/cv/Shreyash_Mane_CV_DataScientist_Startup.pdf',
+  cv: '/cv/Shreyash_Mane_.pdf',
   bio: 'AI & Data Science graduate with experience in machine learning, NLP, data analytics and AI product development. Passionate about building practical AI solutions that solve real-world business problems — from LLM evaluation research to production-grade data platforms.',
   bioLong: [
     'I recently completed an MSc in Data Science at Heriot-Watt University, Edinburgh, where my research focused on evaluating AI model responses to mental health problem statements across multiple languages using large language models including LLaMA-2, GPT-Neo, and Nemotron.',
