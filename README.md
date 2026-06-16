@@ -2,6 +2,9 @@
 
 Personal portfolio website for Shreyash Mane, AI & Data Science Graduate.
 
+**Live site:** [shreyash-mane.github.io](https://shreyash-mane.github.io) *(update once deployed)*
+**GitHub repo:** https://github.com/shreyash-mane/portfolio
+
 **Tech stack:** React 18 · Vite 5 · Tailwind CSS 3 · react-icons
 
 ---
@@ -27,15 +30,17 @@ npm run preview
 ## Folder Structure
 
 ```
-Potfolio/
+portfolio/
 ├── public/
+│   ├── certificates/
+│   │   ├── lloyds-forage-certificate.pdf
+│   │   └── quantium-forage-certificate.pdf
 │   ├── cv/
-│   │   └── shreyash-mane-cv.pdf   ← ADD YOUR CV HERE
-│   ├── og-image.png               ← ADD OG IMAGE (1200×630)
+│   │   └── Shreyash_Mane_CV_DataScientist_Startup.pdf
 │   ├── favicon.svg
 │   └── robots.txt
 ├── src/
-│   ├── assets/                    ← static images if needed
+│   ├── assets/                    ← optional static images (e.g. profile.jpg)
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.jsx
@@ -68,6 +73,15 @@ Potfolio/
 
 ---
 
+## Remaining TODOs
+
+- [ ] Replace placeholder certifications in `src/data/portfolio.js` with real ones
+- [ ] Add `public/og-image.png` (1200×630) for social media link previews
+- [ ] Update canonical URL in `index.html` to your actual deployed domain
+- [ ] Submit sitemap to Google Search Console
+
+---
+
 ## Customisation
 
 All content is centralised in **`src/data/portfolio.js`**. Edit that file to update:
@@ -85,21 +99,25 @@ Open `src/data/portfolio.js` and update the `personal` object:
 
 ```js
 export const personal = {
-  github: 'https://github.com/YOUR_USERNAME',
-  linkedin: 'https://linkedin.com/in/YOUR_PROFILE',
-  email: 'your@email.com',
+  github: 'https://github.com/shreyash-mane',
+  linkedin: 'https://linkedin.com/in/shreyash-mane-368138177',
+  email: 'shreyashmane22@gmail.com',
   // ...
 };
 ```
 
-### Adding Your CV
+### CV
 
-Place your CV PDF at:
+Your CV is already placed at:
 ```
-public/cv/shreyash-mane-cv.pdf
+public/cv/Shreyash_Mane_CV_DataScientist_Startup.pdf
 ```
 
-The download button in the Navbar and Hero will automatically use it.
+The path is referenced in `src/data/portfolio.js` via the `personal.cv` field. If you rename the file, update that field to match:
+
+```js
+cv: '/cv/Shreyash_Mane_CV_DataScientist_Startup.pdf',
+```
 
 ### Adding Certifications
 
@@ -117,6 +135,16 @@ export const certifications = [
   // ...
 ];
 ```
+
+### Adding Project Certificates
+
+Place certificate PDFs in `public/certificates/`. The two Forage certificates are already there:
+```
+public/certificates/lloyds-forage-certificate.pdf
+public/certificates/quantium-forage-certificate.pdf
+```
+
+Reference them in the project entry via the `certificate` field in `portfolio.js`.
 
 ### Adding an OG Image
 
@@ -136,9 +164,9 @@ vercel --prod
 
 ### Option B: GitHub Integration (Zero-config)
 
-1. Push this repo to GitHub
+1. Push to `https://github.com/shreyash-mane/portfolio`
 2. Go to [vercel.com](https://vercel.com) → **New Project**
-3. Import your GitHub repository
+3. Import the `shreyash-mane/portfolio` repository
 4. Framework will be auto-detected as **Vite**
 5. Click **Deploy**
 
@@ -195,29 +223,32 @@ Currently seeking graduate roles in: AI Engineering · ML Engineering · Data Sc
 
 **GitHub bio:**
 ```
-AI & Data Science Graduate (MSc Heriot-Watt) · ML · NLP · LLM Evaluation · Builder of DataLab 🔗 data-lab.co.uk
+AI & Data Science Graduate (MSc Heriot-Watt) · ML · NLP · LLM Evaluation · Builder of DataLab · data-lab.co.uk
 ```
 
 **Pinned repositories to feature:**
 1. DataLab (if open-sourced or link to live site)
 2. MSc Dissertation project
-3. Customer Churn Prediction
-4. Retail Analytics
+3. Customer Churn Prediction (`lloyds-forage-certificate.pdf` already in repo)
+4. Retail Analytics (`quantium-forage-certificate.pdf` already in repo)
 
-**README.md** for your GitHub profile (`github.com/shreyashmane/shreyashmane`):
+**Profile README** (`github.com/shreyash-mane/shreyash-mane`):
 - Add a skills badges section
 - Link to your portfolio site
-- Add your DataLab live link
+- Add your DataLab live link (data-lab.co.uk)
 
 ---
 
-## Placeholder Image Locations
+## Assets Reference
 
-| File | Purpose | Dimensions |
-|------|---------|-----------|
-| `public/og-image.png` | Social media link preview | 1200×630 |
-| `public/favicon.svg` | Browser tab icon | SVG (included) |
-| `src/assets/profile.jpg` | Optional profile photo | 400×400 |
+| File | Status | Purpose | Dimensions |
+|------|--------|---------|-----------|
+| `public/og-image.png` | **Missing — add this** | Social media link preview | 1200×630 |
+| `public/favicon.svg` | Included | Browser tab icon | SVG |
+| `public/cv/Shreyash_Mane_CV_DataScientist_Startup.pdf` | Included | CV download | — |
+| `public/certificates/lloyds-forage-certificate.pdf` | Included | Lloyds Forage certificate | — |
+| `public/certificates/quantium-forage-certificate.pdf` | Included | Quantium Forage certificate | — |
+| `src/assets/profile.jpg` | Optional | Profile photo in About section | 400×400 |
 
 ---
 
