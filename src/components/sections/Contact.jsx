@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import { FiMail, FiGithub, FiLinkedin, FiSend, FiMapPin } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
+import { FiMail, FiGithub, FiLinkedin, FiSend, FiMapPin, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import SectionHeader from '../ui/SectionHeader';
 import { personal } from '../../data/portfolio';
+
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const contactLinks = [
   {
@@ -36,19 +41,34 @@ const contactLinks = [
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { name, email, subject, message } = form;
-    const body = `Hi Shreyash,\n\nMy name is ${name} (${email}).\n\n${message}`;
-    const mailtoLink = `mailto:${personal.email}?subject=${encodeURIComponent(subject || 'Portfolio Enquiry')}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-    setStatus('sent');
+    setStatus('sending');
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          subject:    form.subject || 'Portfolio Enquiry',
+          message:    form.message,
+          to_email:   personal.email,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus('sent');
+      setForm({ name: '', email: '', subject: '', message: '' });
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -100,11 +120,11 @@ export default function Contact() {
 
             {status === 'sent' ? (
               <div className="flex flex-col items-center justify-center py-10 text-center">
-                <div className="w-12 h-12 rounded-full bg-zinc-500/15 border border-zinc-500/30 flex items-center justify-center mb-4">
-                  <FiSend size={20} className="text-zinc-400" />
+                <div className="w-12 h-12 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mb-4">
+                  <FiCheckCircle size={22} className="text-emerald-400" />
                 </div>
-                <p className="text-white font-medium mb-1">Opening your email client…</p>
-                <p className="text-sm text-slate-500">Your message has been pre-filled. Just hit Send.</p>
+                <p className="text-white font-medium mb-1">Message sent!</p>
+                <p className="text-sm text-slate-500">Thanks for reaching out. I'll get back to you within 24 hours.</p>
                 <button
                   onClick={() => setStatus('idle')}
                   className="mt-5 text-xs text-zinc-400 hover:text-zinc-300 transition-colors"
@@ -166,14 +186,21 @@ export default function Contact() {
                   />
                 </div>
 
+                {status === 'error' && (
+                  <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-3.5 py-2.5">
+                    <FiAlertCircle size={15} />
+                    Something went wrong. Please try again or email me directly.
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full btn-primary justify-center py-3 text-sm"
+                  disabled={status === 'sending'}
+                  className="w-full btn-primary justify-center py-3 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <FiSend size={15} />
-                  Send Message
+                  {status === 'sending' ? 'Sending…' : 'Send Message'}
                 </button>
-
               </form>
             )}
           </div>
