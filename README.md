@@ -4,7 +4,7 @@ Personal portfolio website showcasing my work in Artificial Intelligence, Machin
 
 ## Live Website
 
-🔗 https://portfolio-two-ivory-45.vercel.app
+🔗 https://shreyashmane.info
 
 ## About Me
 
