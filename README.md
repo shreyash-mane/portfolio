@@ -79,14 +79,6 @@ Performed customer transaction analysis, store segmentation, and control store s
 * FastAPI
 * React
 
-## Running Locally
-
-```bash
-git clone https://github.com/shreyash-mane/portfolio.git
-cd portfolio
-npm install
-npm run dev
-```
 
 ## Contact
 
