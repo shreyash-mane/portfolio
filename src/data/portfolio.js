@@ -178,6 +178,31 @@ export const projects = [
     tech: ['Python', 'Pandas', 'Data Visualization', 'Statistical Analysis', 'Business Intelligence', 'Tableau'],
     impact: 'Delivered evidence-based retail strategy recommendations backed by customer behaviour data.',
   },
+  {
+    id: 'british-airways',
+    title: 'British Airways Data Science Job Simulation',
+    subtitle: 'British Airways — Data Science (Forage)',
+    type: 'Data Science',
+    typeColor: 'blue',
+    role: 'Data Scientist',
+    live: null,
+    github: null,
+    certificate: '/certificates/British-airways-certificate.pdf',
+    status: 'completed',
+    date: 'June 2026',
+    description:
+      'Data science simulation focused on customer sentiment analysis and predictive modelling to understand factors influencing airline customer buying behaviour.',
+    features: [
+      'Scraped and analysed customer review data to uncover airline sentiment insights',
+      'Applied data cleaning and exploratory analysis to unstructured text',
+      'Built a predictive model in Python (Jupyter Notebook) for buying behaviour',
+      'Feature engineering and model evaluation techniques',
+      'Translated model outputs into business insights for non-technical stakeholders',
+      'Presented findings via PowerPoint to simulate real stakeholder communication',
+    ],
+    tech: ['Python', 'Jupyter Notebook', 'NLP', 'Sentiment Analysis', 'Scikit-learn', 'Feature Engineering', 'Data Visualization'],
+    impact: 'Identified key drivers of customer buying behaviour and delivered actionable insights through clear stakeholder-ready presentation.',
+  },
 ];
 
 export const experience = [
